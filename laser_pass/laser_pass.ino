@@ -3,25 +3,26 @@ const int LDR = A0;  //pin ldr
 const int LASER = 2; //pin Laser
 const int T = 200; //l'écart entre 2 remplissages (en milliseconde)
 const int THRESHOLD = 50; //seuil pour lequel on trigger 'state' (en degré)
+const int TIMING = T * 2 - 1; //relax entre un trigger et un autre (en millis)
 
 float valArray [AS];
 float ldrValue;
 float average = 0;
-
 float av1, av2;
+
 bool odd = true;
 bool firstLoop = true;
+bool state, prevState, switchin;
 
-int state = 0;
+unsigned long tDiff;
 
 void setup() {
   pinMode(LDR, INPUT);
   pinMode(LASER, OUTPUT);
   digitalWrite(LASER, HIGH);
 
-  FillBuffer();
   Serial.begin(9600);
-  state = 0;
+  InitCalibration();
 }
 
 void loop() {
@@ -32,15 +33,23 @@ void loop() {
     if (odd)av1 = average;
     else av2 = average;
     odd = !odd;
-    //Serial.print(odd); Serial.print(" 1 : "); Serial.print(av1); Serial.print(" 2 : "); Serial.println(av2);
-    //Serial.print(" cos : ");
-    //Serial.println(CosCalulation());
 
-
+    //changement de 'state' en fonction de 'CosClculation'l.53
     if (!firstLoop) {
-      if (degrees(CosCalculation()) > THRESHOLD)state = !state;
-      Serial.println(state);
-    }else firstLoop = false;
+      prevState = state;
+      if (degrees(CosCalculation()) > THRESHOLD) {
+        state = !state;
+        switchin = true;
+        tDiff = millis();
+        if (millis() - tDiff < TIMING && switchin == true) {
+          switchin = false;
+          Serial.println("TRIGGERED");
+        }
+      }
+    } else {
+      firstLoop = false;
+    }
+    Serial.print(prevState); Serial.print("pS - S"); Serial.println(state);
   }
 }
 
@@ -62,4 +71,27 @@ double CosCalculation() {
   cosA = 200 / d;
 
   return cos(cosA);
+}
+
+void InitCalibration() {
+  Serial.println("...CALIBRATION...");
+  state = 0;
+
+  digitalWrite(LASER, LOW);
+  delay(1000);
+  Serial.println("__Laser Off__");
+  for (int i = 1; i < 4; i++) {
+    FillBuffer();
+    Serial.print("wave : "); Serial.println(i);
+    delay(500);
+  }
+
+  digitalWrite(LASER, HIGH);
+  delay(1000);
+  Serial.println("__Laser On__");
+  for (int i = 1; i < 4; i++) {
+    FillBuffer();
+    Serial.print("wave : "); Serial.println(i);
+    delay(500);
+  }
 }
