@@ -1,5 +1,4 @@
-# arduino 
-###Librairies à installé pour les cartes
+### Librairies à installer pour les cartes
 
 CH340 driver : 
 https://github.com/Frances9/DFR0478/tree/d224535de39a000fbbf704fdd2e4162b87ea1636
