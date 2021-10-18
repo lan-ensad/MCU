@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 
-const char* ssid = "*********";
-const char* password = "************";
+const char* ssid = "Bbox-A99C98C2";
+const char* password = "C14321D65C9F6F61D2F162D61F1116";
 
 int servoValue = 90;
 
