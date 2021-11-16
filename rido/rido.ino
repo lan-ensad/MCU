@@ -13,6 +13,7 @@ bool limitSwitch, state;
 
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
   pinMode(LIMITSWITCH, INPUT);
   pinMode(stepPin, OUTPUT);
   pinMode(dirPin, OUTPUT);
@@ -23,7 +24,15 @@ void setup() {
   state = true;
 
   Serial.begin(9600);
+  Blink();
   Serial.println("... INIT DONE ...");
+}
+
+void Blink(){
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(250);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(250);
 }
 
 void Rewind() {
@@ -31,10 +40,24 @@ void Rewind() {
   digitalWrite(dirPin, HIGH);
   //COUNTER CLOCKWISE
   //digitalWrite(dirPin, LOW);
-  while (state) {
+  if (state) {
     SwitchState();
     if (!limitSwitch) {
       state = false;
+    }
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(600);
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(600);
+  }
+}
+
+void Wind(){
+  digitalWrite(dirPin, LOW);
+  if (!state) {
+    SwitchState();
+    if (limitSwitch) {
+      state = true;
     }
     digitalWrite(stepPin, HIGH);
     delayMicroseconds(600);
@@ -52,5 +75,8 @@ void loop() {
   }
   if (state) {
     Rewind();
+    Wind();
+  }else{
+    Blink();
   }
 }
