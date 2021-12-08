@@ -34,7 +34,6 @@ void Blink(){
   digitalWrite(LED_BUILTIN, LOW);
   delay(250);
 }
-
 void Rewind() {
   //CLOWKWISE
   digitalWrite(dirPin, HIGH);
@@ -51,7 +50,6 @@ void Rewind() {
     delayMicroseconds(600);
   }
 }
-
 void Wind(){
   digitalWrite(dirPin, LOW);
   if (!state) {
