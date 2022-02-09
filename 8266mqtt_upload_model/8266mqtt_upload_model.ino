@@ -2,11 +2,9 @@
 #include <PubSubClient.h>
 
 // Change the credentials below, so your ESP8266 connects to your router
-const char* ssid = "Bbox-A99C98C2";
-const char* password = "C14321D65C9F6F61D2F162D61F1116";
-
-// Change the variable to your Raspberry Pi IP address, so it connects to your MQTT broker
-const char* mqtt_server = "192.168.1.65";
+const char* ssid = "interlan";
+const char* password = "UQz7r58s9WMq";
+const char* mqtt_server = "192.168.0.112";
 
 // Initializes the espClient. You should change the espClient name if you have multiple ESPs running in your home automation system
 WiFiClient espClient;
@@ -96,6 +94,6 @@ void loop() {
     val = random(100);
     static char value[5]; //+1C '-' +1C null +1C '.' f
     dtostrf(val, 2, 0, value);
-    client.publish("test/test", value);
+    client.publish("NunshaK/droit", value);
   }
 }
