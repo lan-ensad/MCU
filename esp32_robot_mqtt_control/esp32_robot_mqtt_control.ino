@@ -16,11 +16,11 @@
   PWM    1    Reverse PWM,slow decay    Speed = Low duty-cycle
   ======================================================================
   TABLE OF MOVMENTS
-  _____________
-  | 5 | 1 | 6 |
-  | 3 | 0 | 4 |
-  | 7 | 2 | 8 |
-  see documentation for more
+  _______________________________________________________________
+  | 5 | 1 | 6 |   ||  Turn Left     |  Forward    |   Turn Right
+  | 3 | 0 | 4 |   ||  Slide Left    |    STOP     |   Slide Right
+  | 7 | 2 | 8 |   ||  Rotation CCW  |  Backward   |   Rotation CW
+  see README.md for more
 */
 
 #include <Arduino.h>
@@ -54,7 +54,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   String top = topic;
   Serial.print("Message arrived in topic: ");
   Serial.println(top);
-  Serial.print("Message:");
+  Serial.print("Message: ");
   if (top == "robot/action") {
     command = "";
     for (int i = 0; i < length; i++) {
@@ -68,14 +68,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     Serial.print(sp);
   }
-  /*
-    command = "";
-    sp="";
-    for (int i = 0; i < length; i++) {
-    //Serial.print((char)payload[i]);
-    command += (char)payload[i];
-    Serial.print(command);
-    }*/
   Serial.println();
   Serial.println("-----------------------");
 }
@@ -234,59 +226,6 @@ void setup() {
   pinMode(FRONTIB1, OUTPUT);
 
   AllStop();
-  /*
-    //=======================
-    //==== TEST BACKWARD ====
-    delay(2000);
-    BackRightForward(75);
-    delay(500);
-    BackRightBackward(200);
-    delay(500);
-    AllStop();
-    BackLeftBackward(150);
-    delay(500);
-    BackLeftForward(125);
-    delay(500);
-    AllStop();
-    //======================
-    //==== TEST FORWARD ====
-    delay(500);
-    FrontRightForward(75);
-    delay(500);
-    FrontRightBackward(200);
-    delay(500);
-    AllStop();
-    FrontLeftBackward(150);
-    delay(500);
-    FrontLeftForward(125);
-    delay(500);
-    AllStop();
-    //======================
-    //==== TEST SLIDES ====
-    delay(1000);
-    SlideLeft(150);
-    delay(2000);
-    SlideRight(200);
-    delay(2000);
-    //========================
-    //==== TEST ROTATIONS ====
-    RotateCW(200);
-    delay(2000);
-    RotateCCW(200);
-    delay(2000);
-    //=======================
-    //====== TEST TURN ======
-    TurnLeft(150);
-    delay(1000);
-    TurnRight(1000);
-    delay(1000);
-    //========================
-    //==== TEST DIRECTION ====
-    Forward(150);
-    delay(1000);
-    Backward(150);
-    delay(1000);
-  */
 }
 
 void loop() {

@@ -23,14 +23,14 @@ PWM|1|Reverse PWM,slow decay|Speed = Low duty-cycle
 ### Theory
 ![directionning](directioning.jpg)
 
-### Movements table : 
+### Movements table in this case
 | | | |
 |--:|--:|--:|
-|Turn Left : `5`|Forward : `1`|Turn Right : `6` |
-|Slide Left : `3`|Stop : `0`|Slide Right : `4` |
-|Rotation CCW : `7`|Backward : `2`|Rotation CW : `8` |
+|Turn Left : **`5`**|Forward : **`1`**|Turn Right : **`6`** |
+|Slide Left : **`3`**|Stop : **`0`**|Slide Right : **`4`** |
+|Rotation CCW : **`7`**|Backward : **`2`**|Rotation CW : **`8`** |
 
-Raspberry publish mqtt with integer. ESP32 subscribe to the topic, a switch/case structure send where and how the robot goes. 
+Raspberry publish mqtt with an integer. ESP32 subscribe to the topic, a switch/case structure send where and how the robot goes. 
 
 
 ## Setup RaspberryPi 
@@ -38,41 +38,42 @@ Raspberry publish mqtt with integer. ESP32 subscribe to the topic, a switch/case
 ### Mosquitto
 
 Follow https://randomnerdtutorials.com/how-to-install-mosquitto-broker-on-raspberry-pi/
-```
-sudo apt update && sudo apt upgrade && sudo apt install -y mosquitto mosquitto-clients
-sudo systemctl enable mosquitto.service
-sudo nano /etc/mosquitto/mosquitto.conf
-```
+
+    sudo apt update && sudo apt upgrade && sudo apt install -y mosquitto mosquitto-clients
+    sudo systemctl enable mosquitto.service
+    sudo nano /etc/mosquitto/mosquitto.conf
+
 
 add in the end of the .conf file : 
-```
-listener 1883
-allow_anonymous true
-sudo reboot
-hostname -I
-```
+
+    listener 1883
+    allow_anonymous true
+
+`sudo reboot`
+
+`hostname -I`
 
 ### NodeRed
 
 Follow https://randomnerdtutorials.com/getting-started-with-node-red-on-raspberry-pi/
 
 **Install Node-RED :** 
-```
-bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
-sudo systemctl enable nodered.service
-sudo reboot
-```
+
+    bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+    sudo systemctl enable nodered.service
+    sudo reboot
+
 
 check with browser : 
 `http//IP_ADD_RASP:1880`
 
 **Install Node-RED Dashboard :** 
-```
-node-red-stop
-cd ~/.node-red
-npm install node-red-dashboard
-sudo reboot
-```
+
+    node-red-stop
+    cd ~/.node-red
+    npm install node-red-dashboard
+    sudo reboot
+
 check with browser : 
 `http//IP_ADD_RASP:1880/ui`
 
@@ -82,4 +83,7 @@ check with browser :
 ### Mqtt Subscribe
 Follow : https://techtutorialsx.com/2017/04/24/esp32-subscribing-to-mqtt-topic/
 
+Documentation : https://pubsubclient.knolleary.net/api
+See **_Subscription Callback_** at the bottom of the page
 
+In the code, all the parameters should be in the **_void callBack()_** function as the example.
