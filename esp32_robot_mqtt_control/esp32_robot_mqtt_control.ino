@@ -74,62 +74,46 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 //=========== MOTOR CONTROLLER ===========
 void AllStop() {
-  analogWrite(FRONTIA1, 0);
-  analogWrite(FRONTIA2, 0);
-  analogWrite(FRONTIB1, 0);
-  analogWrite(FRONTIB2, 0);
-  analogWrite(BACKIA1, 0);
-  analogWrite(BACKIA2, 0);
-  analogWrite(BACKIB1, 0);
-  analogWrite(BACKIB2, 0);
+  analogWrite(FRONTIA1, LOW);
+  analogWrite(FRONTIA2, LOW);
+  analogWrite(FRONTIB1, LOW);
+  analogWrite(FRONTIB2, LOW);
+  analogWrite(BACKIA1, LOW);
+  analogWrite(BACKIA2, LOW);
+  analogWrite(BACKIB1, LOW);
+  analogWrite(BACKIB2, LOW);
 }
 //====== FRONT CONTROLS  ======
 void FrontLeftForward(int sp) {
-  analogWrite(FRONTIB2, 0);
-  analogWrite(FRONTIB1, 0);
   digitalWrite(FRONTIB1, HIGH);
   analogWrite(FRONTIB2, sp);
 }
 void FrontLeftBackward(int sp) {
-  analogWrite(FRONTIB2, 0);
-  analogWrite(FRONTIB1, 0);
   digitalWrite(FRONTIB2, HIGH);
   analogWrite(FRONTIB1, sp);
 }
 void FrontRightBackward(int sp) {
-  analogWrite(FRONTIA2, 0);
-  analogWrite(FRONTIA1, 0);
   digitalWrite(FRONTIA1, HIGH);
   analogWrite(FRONTIA2, sp);
 }
 void FrontRightForward(int sp) {
-  analogWrite(FRONTIA2, 0);
-  analogWrite(FRONTIA1, 0);
   digitalWrite(FRONTIA2, HIGH);
   analogWrite(FRONTIA1, sp);
 }
 //====== BACK CONTROLS  ======
 void BackLeftForward(int sp) {
-  analogWrite(BACKIB2, 0);
-  analogWrite(BACKIB1, 0);
   digitalWrite(BACKIB1, HIGH);
   analogWrite(BACKIB2, sp);
 }
 void BackLeftBackward(int sp) {
-  analogWrite(BACKIB2, 0);
-  analogWrite(BACKIB1, 0);
   digitalWrite(BACKIB2, HIGH);
   analogWrite(BACKIB1, sp);
 }
 void BackRightBackward(int sp) {
-  analogWrite(BACKIA2, 0);
-  analogWrite(BACKIA1, 0);
   digitalWrite(BACKIA1, HIGH);
   analogWrite(BACKIA2, sp);
 }
 void BackRightForward(int sp) {
-  analogWrite(BACKIA2, 0);
-  analogWrite(BACKIA1, 0);
   digitalWrite(BACKIA2, HIGH);
   analogWrite(BACKIA1, sp);
 }
@@ -192,7 +176,6 @@ void Backward(int v) {
 
 void setup() {
   Serial.begin(115200);
-  analogWriteResolution(10);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
