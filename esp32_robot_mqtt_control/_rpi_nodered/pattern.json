@@ -1,0 +1,763 @@
+[
+    {
+        "id": "d45aff0facb9ebce",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1a4ea5216eacef08",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f1f2d9ca59a59445",
+        "type": "ui_tab",
+        "name": "Robot",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dd84a961b69aee2d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "landomo",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3133bcfb89c98367",
+        "type": "ui_group",
+        "name": "Speed",
+        "tab": "f1f2d9ca59a59445",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ae132df6917a4851",
+        "type": "ui_group",
+        "name": "Controller",
+        "tab": "f1f2d9ca59a59445",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bbcfef2ee77b6aed",
+        "type": "ui_group",
+        "name": "Fans",
+        "tab": "cc14a4a399ed2dc6",
+        "order": 3,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cc14a4a399ed2dc6",
+        "type": "ui_tab",
+        "name": "Fans",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9d840c87d09b3833",
+        "type": "ui_gauge",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "3133bcfb89c98367",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Speed",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 510,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e9eac6d4b661f311",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Forward",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "Forward",
+        "topicType": "str",
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "5a91cca4b412cdf7"
+            ]
+        ]
+    },
+    {
+        "id": "c0e06cef7bb55979",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 1,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Turn Left",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "5",
+        "payloadType": "str",
+        "topic": "Turn Left",
+        "topicType": "str",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "a3d99d35c2abc3e6"
+            ]
+        ]
+    },
+    {
+        "id": "51d40dc89588c226",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 3,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Turn Right",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "6",
+        "payloadType": "str",
+        "topic": "Turn Right",
+        "topicType": "str",
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "a845958f878138dc"
+            ]
+        ]
+    },
+    {
+        "id": "ce44f6a6843d2ba5",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 4,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Slide Left",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "3",
+        "payloadType": "str",
+        "topic": "Slide Left",
+        "topicType": "str",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "b5f2be54ea1abad0"
+            ]
+        ]
+    },
+    {
+        "id": "efc311767773504d",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 6,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Slide Right",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "str",
+        "topic": "Slide Right",
+        "topicType": "str",
+        "x": 710,
+        "y": 320,
+        "wires": [
+            [
+                "afa3d2c51824c6db"
+            ]
+        ]
+    },
+    {
+        "id": "ea50caea1f70caef",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 7,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Rotation CCW",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "7",
+        "payloadType": "str",
+        "topic": "Rotation CCW",
+        "topicType": "str",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "05afbbf184783ee1"
+            ]
+        ]
+    },
+    {
+        "id": "583eaf94b2b2304a",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 8,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Backward",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "Backward",
+        "topicType": "str",
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "510ba5b43b5d58ad"
+            ]
+        ]
+    },
+    {
+        "id": "d9701dcad1623068",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 9,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Rotation CW",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "str",
+        "topic": "Rotation CW",
+        "topicType": "str",
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "0d64505fa4f69893"
+            ]
+        ]
+    },
+    {
+        "id": "a3d99d35c2abc3e6",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Turn Left",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 300,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b5f2be54ea1abad0",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Slide Left",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 300,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5a91cca4b412cdf7",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Forward",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 580,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a845958f878138dc",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Turn Right",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "afa3d2c51824c6db",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Slide Right",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "0d64505fa4f69893",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Rotation CW",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 870,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "05afbbf184783ee1",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Rotation CCW",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 320,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "510ba5b43b5d58ad",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Backward",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 580,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9208e90e95bf43dd",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "ae132df6917a4851",
+        "order": 5,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "Stop",
+        "topicType": "str",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "3cd2fb46b62e7936"
+            ]
+        ]
+    },
+    {
+        "id": "3cd2fb46b62e7936",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Stop",
+        "topic": "robot/action",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fc338ed3a7c93e36",
+        "type": "ui_slider",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "label": "Speed",
+        "tooltip": "",
+        "group": "3133bcfb89c98367",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "outs": "all",
+        "topic": "Speed",
+        "topicType": "msg",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 370,
+        "y": 60,
+        "wires": [
+            [
+                "9d840c87d09b3833",
+                "57098c55094f7549"
+            ]
+        ]
+    },
+    {
+        "id": "57098c55094f7549",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Forward",
+        "topic": "robot/speed",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e55d78ac4257df30",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Fan01",
+        "topic": "fans/01",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c05aebab1fa1e30f",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "bbcfef2ee77b6aed",
+        "order": 1,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Fan 01",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "trigger-fan-01",
+        "payloadType": "str",
+        "topic": "01",
+        "topicType": "str",
+        "x": 720,
+        "y": 560,
+        "wires": [
+            [
+                "e55d78ac4257df30"
+            ]
+        ]
+    },
+    {
+        "id": "0a8ccc5fdb8baf54",
+        "type": "mqtt out",
+        "z": "d45aff0facb9ebce",
+        "name": "Fan02",
+        "topic": "fans/02",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a4ea5216eacef08",
+        "x": 850,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6b3bb2c178878b80",
+        "type": "ui_button",
+        "z": "d45aff0facb9ebce",
+        "name": "",
+        "group": "bbcfef2ee77b6aed",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Fan 02",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "trigger-fan-02",
+        "payloadType": "str",
+        "topic": "02",
+        "topicType": "str",
+        "x": 720,
+        "y": 620,
+        "wires": [
+            [
+                "0a8ccc5fdb8baf54"
+            ]
+        ]
+    }
+]
