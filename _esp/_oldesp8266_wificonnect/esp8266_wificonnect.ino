@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 
 #ifndef STASSID
-#define STASSID "domo"
-#define STAPSK  "th1Sp4((!"
+#define STASSID "WIFI SSID"
+#define STAPSK  "WIFI PASSWPRD"
 #define B 10
 #endif
 
