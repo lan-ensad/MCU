@@ -2,9 +2,9 @@
 #include <PubSubClient.h>
 
 // Change the credentials below, so your ESP8266 connects to your router
-const char* ssid = "interlan";
-const char* password = "UQz7r58s9WMq";
-const char* mqtt_server = "192.168.0.112";
+const char* ssid = "WIFI SSID";
+const char* password = "WIFI PASSWORD";
+const char* mqtt_server = "MQTT IP SERVER";
 
 // Initializes the espClient. You should change the espClient name if you have multiple ESPs running in your home automation system
 WiFiClient espClient;
