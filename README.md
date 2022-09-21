@@ -11,3 +11,9 @@ https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 Attiny : 
 https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+
+Seeeduino : —XIAO, Wio, Lotus, LoRaWAN, Cortex M0—
+https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json
+
+Seeeduino : —Generic AVR—
+https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_legacy_seeeduino_boards_index.json
