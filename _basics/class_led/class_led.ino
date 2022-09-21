@@ -3,6 +3,8 @@
    Blinker(PIN, DuringHIGH, DuringLOW)
 */
 class Blinker {
+//—————————————————————————————————————
+//             __Init__
   private:
     byte pinLED;
     boolean ledState = LOW;
@@ -18,7 +20,8 @@ class Blinker {
       pinMode(pinLED, OUTPUT);
     }
 
-    // Checks whether it is time to turn on or off the LED.
+//—————————————————————————————————————
+//              Refresh
     void check() {
       unsigned long currentTime = millis();
       if (currentTime >= nextChangeTime) {
@@ -35,6 +38,14 @@ class Blinker {
         digitalWrite(pinLED, ledState);
       }
     }
+//—————————————————————————————————————
+//            Set Functions
+    void setDuringTime(){
+    }
+//—————————————————————————————————————
+//            Get Functions
+    void getDuringTime(){
+    }
 };
 
 //=========================================================================
@@ -44,12 +55,13 @@ class Blinker {
    Fader(PIN, StepsUp, StepsDown, TimeToUp, TimeToDown, DuringHIGH, DuringLOW)
 */
 class Fader {
+//—————————————————————————————————————
+//             __Init__
   private:
     byte pinLED;
     bool isUp, isOn, isOff, isDown;
     int value;
     unsigned long PrevTime, onTime, offTime;
-
     unsigned long stepsUp, stepsDown, timeToUp, timeToDown, timeOn, timeOff;
 
   public:
@@ -66,7 +78,8 @@ class Fader {
       isUp = true;
       PrevTime = millis();
     }
-
+//—————————————————————————————————————
+//              Refresh
     void check() {
       unsigned long currentTime = millis();
       if (isUp) {
@@ -103,5 +116,22 @@ class Fader {
         }
       }
       analogWrite(pinLED, value);
+    }
+
+//—————————————————————————————————————
+//            Set Functions
+    void setSteps(){
+    }
+    void setTimeTo(){
+    }
+    void setDuringTime(){
+    }
+//—————————————————————————————————————
+//            Get Functions
+    void getSteps(){
+    }
+    void getTimeTo(){
+    }
+    void getDuringTime(){
     }
 };
