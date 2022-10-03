@@ -60,12 +60,12 @@ class Fader {
   private:
     byte pinLED;
     bool isUp, isOn, isOff, isDown;
-    int value;
+    int value, maxBri, minBri;
     unsigned long PrevTime, onTime, offTime;
     unsigned long stepsUp, stepsDown, timeToUp, timeToDown, timeOn, timeOff;
 
   public:
-    Fader(byte pinLED, unsigned long stepsUp, unsigned long stepsDown, unsigned long timeToUp, unsigned long timeToDown, unsigned long timeOn, unsigned long timeOff) {
+    Fader(byte pinLED, int minBri, int maxBri, unsigned long stepsUp, unsigned long stepsDown, unsigned long timeToUp, unsigned long timeToDown, unsigned long timeOn, unsigned long timeOff) {
       this->pinLED = pinLED;
       this->stepsUp = stepsUp;
       this->stepsDown = stepsDown;
@@ -73,6 +73,8 @@ class Fader {
       this->timeToDown = timeToDown;
       this->timeOn = timeOn;
       this->timeOff = timeOff;
+      this->minBri = minBri;
+      this->maxBri = maxBri;
 
       pinMode(pinLED, OUTPUT);
       isUp = true;
@@ -85,8 +87,8 @@ class Fader {
       if (isUp) {
         if (currentTime-PrevTime >= timeToUp) {
           value += stepsUp;
-          if (value >= 255) {
-            value=255;
+          if (value >= maxBri) {
+            value=maxBri;
             if (!isOn) {
               onTime = currentTime;
               isOn = true;
@@ -101,8 +103,8 @@ class Fader {
       } else if (isDown) {
         if (currentTime - PrevTime >= timeToDown) {
           value -= stepsDown;
-          if (value <= 0) {
-            value=0;
+          if (value <= minBri) {
+            value=minBri;
             if (!isOff) {
               offTime = currentTime;
               isOff = true;
@@ -120,11 +122,17 @@ class Fader {
 
 //—————————————————————————————————————
 //            Set Functions
+    void setBrightness(int min, int max){
+      minBri=min;
+      maxBri=max;
+    }
     void setSteps(){
     }
     void setTimeTo(){
     }
-    void setDuringTime(){
+    void setDuringTime(unsigned long haut, unsigned long bas){
+      timeOn = haut;
+      timeOff = bas;
     }
 //—————————————————————————————————————
 //            Get Functions

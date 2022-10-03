@@ -26,7 +26,6 @@ void Trig(int b, boolean s, boolean ps, int r) {
 }
 
 void loop() {
-  /*
   //---- Array OK ----
   for (int i = 0; i < NB ; i++) {
     state[i] = digitalRead(BTN[i]);
@@ -37,7 +36,6 @@ void loop() {
     }
     prevState[i] = state[i];
   }
-  */
 
   switch (s) {
     case 0 :
