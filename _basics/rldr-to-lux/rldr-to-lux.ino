@@ -6,10 +6,10 @@
 const int sensorPin = A0;
 int sensorVal, lux;
 
-int sensorRawToPhys(int raw) {
-  float Vout = float(raw) * (VIN / float(pow(2, RES)));  // Conversion analog to voltage
+float sensorRawToPhys(int raw) {
+  float Vout = float(raw) * (VIN / float(pow(2, RES)-1));  // Conversion analog to voltage
   float RLDR = (R * (VIN - Vout)) / Vout;         // Conversion voltage to resistance
-  int phys = 500 / (RLDR / 1000);                 // Conversion resitance to lumen
+  float phys = 500 / (RLDR / 1000);                 // Conversion resitance to lumen
   return phys;
 }
 
