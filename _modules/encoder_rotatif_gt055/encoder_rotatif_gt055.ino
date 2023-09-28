@@ -33,9 +33,9 @@ void ReadCode() {
     }
     Serial.print("Rotation: ");
     if (bCW) {
-      Serial.print("Sens horaire");
-    } else {
       Serial.print("Sens anti-horaire");
+    } else {
+      Serial.print("Sens horaire");
     }
     Serial.print("\t Position de l'encodeur: ");
     Serial.println(encoderPosCount);
